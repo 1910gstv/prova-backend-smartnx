@@ -4,7 +4,7 @@ const userController = require("../controllers/userController")
 
 /**
  * @swagger
- * /users/create:
+ * /api/users/create:
  *   post:
  *     summary: Cria um novo usuário
  *     tags: [Users]
@@ -39,7 +39,7 @@ router.post("/create", userController.create);
 
 /**
  * @swagger
- * /users/login:
+ * /api/users/login:
  *   post:
  *     summary: Autentica um usuário e retorna um token JWT
  *     tags: [Users]
