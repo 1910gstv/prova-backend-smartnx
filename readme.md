@@ -9,7 +9,7 @@
 ## Configuração
 
 Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
-
+   
     DB_NAME=postgres
     DB_USER=postgres
     DB_PASSWORD=123456
@@ -21,6 +21,9 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
     NODE_ENV=development
 
     MONGO_URI=mongodb://mongo:27017/backend
+
+    URL_API=http://localhost
+    PORT=8080
 
 ## Como executar
 1) Na raiz do projeto, executar o comando:
