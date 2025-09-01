@@ -61,7 +61,7 @@ router.post("/create", auth, commentController.create);
  *       200:
  *         description: Comentário atualizado com sucesso
  *       400:
- *         description: Erro de validação (ex.: usuário não autorizado a atualizar este comentário)
+ *         description: Erro de validação
  *       500:
  *         description: Erro interno do servidor
  */
