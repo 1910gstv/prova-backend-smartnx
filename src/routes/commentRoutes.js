@@ -22,7 +22,7 @@ const auth = require("../middleware/auth");
  *                 type: string
  *                 example: "Ótimo post!"
  *               post_id:
- *                 type: integer
+ *                 type: string
  *                 example: 42
  *     responses:
  *       201:
@@ -45,7 +45,7 @@ router.post("/create", auth, commentController.create);
  *         required: true
  *         description: ID do comentário a ser atualizado
  *         schema:
- *           type: integer
+ *           type: string
  *           example: 1
  *     requestBody:
  *       required: true
