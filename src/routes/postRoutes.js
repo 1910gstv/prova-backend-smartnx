@@ -5,7 +5,7 @@ const auth = require("../middleware/auth");
 
 /**
  * @swagger
- * /posts/all:
+ * /api/posts/all:
  *   get:
  *     summary: Lista todos os posts do usuário autenticado
  *     tags: [Posts]
@@ -21,7 +21,7 @@ router.get("/all", auth, postController.getAll);
 
 /**
  * @swagger
- * /posts/get/{id}:
+ * /api/posts/get/{id}:
  *   get:
  *     summary: Busca um post por ID
  *     tags: [Posts]
@@ -47,7 +47,7 @@ router.get("/get/:id", auth, postController.getById);
 
 /**
  * @swagger
- * /posts/create:
+ * /api/posts/create:
  *   post:
  *     summary: Cria um novo post
  *     tags: [Posts]
@@ -79,7 +79,7 @@ router.post("/create", auth, postController.create);
 
 /**
  * @swagger
- * /posts/update/{id}:
+ * /api/posts/update/{id}:
  *   put:
  *     summary: Atualiza um post existente
  *     tags: [Posts]
@@ -118,7 +118,7 @@ router.put("/update/:id", auth, postController.update);
 
 /**
  * @swagger
- * /posts/delete/{id}:
+ * /api/posts/delete/{id}:
  *   delete:
  *     summary: Remove um post
  *     tags: [Posts]

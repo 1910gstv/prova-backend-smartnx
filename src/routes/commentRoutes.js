@@ -5,7 +5,7 @@ const auth = require("../middleware/auth");
 
 /**
  * @swagger
- * /comments/create:
+ * /api/comments/create:
  *   post:
  *     summary: Cria um novo comentário
  *     tags: [Comments]
@@ -33,7 +33,7 @@ router.post("/create", auth, commentController.create);
 
 /**
  * @swagger
- * /comments/update/{id}:
+ * /api/comments/update/{id}:
  *   put:
  *     summary: Atualiza um comentário existente
  *     tags: [Comments]
