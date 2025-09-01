@@ -5,6 +5,16 @@ const jwt = require("jsonwebtoken");
 require("dotenv").config();
 const User = require("../models/User");
 
+const validatePassword = (password) => {
+  if (!password || password == null) {
+    return false;
+  }
+
+  const regex =
+    /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#])[0-9a-zA-Z$*&@#]{8,}$/;
+
+  return regex.test(password);
+};
 const createUser = async (name, username, password) => {
   try {
     console.log("Buscando usuario...");
@@ -12,7 +22,13 @@ const createUser = async (name, username, password) => {
     if (usernameExists) {
       throw new Error("This username already exists. Try another username.");
     }
-    console.log("hasheado senha ...");
+
+    const passwordIsValid = validatePassword(password);
+    if (passwordIsValid == false) {
+      throw new Error(
+        "This password is invalid. The password must be a minimum of eight characters, including one uppercase letter, one lowercase letter, one number, and one special character."
+      );
+    }
 
     const hash = await bcrypt.hash(password, 10);
 
