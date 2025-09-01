@@ -33,7 +33,7 @@ router.get("/all", auth, postController.getAll);
  *         required: true
  *         description: ID do post
  *         schema:
- *           type: integer
+ *           type: string
  *           example: 10
  *     responses:
  *       200:
@@ -91,7 +91,7 @@ router.post("/create", auth, postController.create);
  *         required: true
  *         description: ID do post a ser atualizado
  *         schema:
- *           type: integer
+ *           type: string
  *           example: 7
  *     requestBody:
  *       required: true
@@ -130,7 +130,7 @@ router.put("/update/:id", auth, postController.update);
  *         required: true
  *         description: ID do post a ser removido
  *         schema:
- *           type: integer
+ *           type: string
  *           example: 7
  *     responses:
  *       200:
