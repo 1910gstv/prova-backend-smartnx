@@ -26,7 +26,10 @@ Crie um arquivo `.env` na raiz do projeto com as seguintes variáveis:
     PORT=8080
 
 ## Como executar
-1) Na raiz do projeto, executar o comando:
+
+1) Garanta que o Docker esteja rodando na sua máquina.
+
+2) Na raiz do projeto, executar o comando:
 
 ```bash
 docker compose up --build
