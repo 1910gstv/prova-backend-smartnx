@@ -19,13 +19,17 @@ const createComment = async (text, user_id, post_id) => {
 
 const updateComment = async (text, user_id, id) => {
   try {
-    const comment = await database.Comment.findOne({ where: { id, user_id } });
+    const comment = await database.Comment.findOne({ where: { id } });
     if (!comment) {
       return { message: `Comment ${post_id} not found.` };
     }
 
+    if (comment.user_id != user_id) {
+      return { message: `You can't edit comments from other users.` };
+    }
+
     await comment.update(text);
-    
+
     return { comment };
   } catch (error) {
     return { error };
