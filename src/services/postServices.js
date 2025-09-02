@@ -4,7 +4,6 @@ const { v4: uuidv4 } = require("uuid");
 const getAllPosts = async (user_id) => {
   try {
     const allPosts = await database.Post.findAll({
-      where: { user_id },
       include: [{ model: database.Comment, as: "comments",required: false }],
       order: ["create_time"],
     });
@@ -24,7 +23,6 @@ const getPostById = async (post_id, user_id) => {
     const post = await database.Post.findOne({
       where: {
         id: post_id,
-        user_id,
       },
       include: [{ model: database.Comment, as: "comments" }],
     });
@@ -61,10 +59,14 @@ const updatePost = async (post_id, user_id, data) => {
       return { message: `Cant update id or user_id` };
     }
     const post = await database.Post.findOne({
-      where: { id: post_id, user_id },
+      where: { id: post_id },
     });
     if (!post) {
       return { message: `Post ${post_id} not found.` };
+    }
+
+    if(post.user_id != user_id){
+      return { message: `You can't edit posts from other users.`}
     }
 
     await post.update(data);
@@ -78,10 +80,14 @@ const updatePost = async (post_id, user_id, data) => {
 const deletePost = async (post_id, user_id) => {
   try {
     const post = await database.Post.findOne({
-      where: { id: post_id, user_id },
+      where: { id: post_id },
     });
     if (!post) {
       return { message: `Post ${post_id} not found.` };
+    }
+
+    if(post.user_id != user_id){
+      return { message: `You can't delete posts from other users.`}
     }
 
     await post.destroy();
