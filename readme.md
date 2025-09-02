@@ -1,5 +1,9 @@
 # Projeto backend SMARTNX
 
+## Autor
+
+- **Gustavo Henrique** - [@1910gstv](https://github.com/1910gstv)
+
 ## Pré-requisitos
 
 - [Docker](https://www.docker.com/)
